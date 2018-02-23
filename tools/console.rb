@@ -10,9 +10,14 @@ terrance = Viewer.new("terrance")
 niky = Viewer.new("niky")
 red_bull = Movie.new("red bull")
 flatiron = Movie.new("flatiron")
-WatchListing.new(york, red_bull, 8)
-WatchListing.new(wang, flatiron, 7)
-WatchListing.new(terrance, red_bull, 9)
-WatchListing.new(niky, red_bull, 10)
+WatchListing.new(york, red_bull)
+WatchListing.new(wang, flatiron)
+WatchListing.new(terrance, red_bull)
+WatchListing.new(niky, red_bull)
+
+york.rate_movie(red_bull, 4)
+wang.rate_movie(flatiron, 2)
+terrance.rate_movie(red_bull, 5)
+niky.rate_movie(red_bull, 1)
 
 Pry.start

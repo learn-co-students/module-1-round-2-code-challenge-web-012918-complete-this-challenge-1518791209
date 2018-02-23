@@ -30,26 +30,37 @@ class Movie
   end
 
   def average_rating
+    # What if my watchlist doesn't have a rating?
+    # What do I do?
+
+
     sum = 0
     watchlistings.each do |list|
       sum += list.rating
     end
-    sum/viewers.length
+
+    sum / viewers.length
+    # Allows floating point division
+    # (sum * 1.0) / (viewers.length)
     #returns average of all ratings across viewers
   end
 
-  def highest_rated
+  def self.highest_rated
     all_movie = WatchListing.all.map do |list|
-     list.movie
-     end
-     uniq_movie = all_movie.uniq
-     uniq_movie.each do |movie|
-       movie.average_rating 
+      list.movie
+    end
+    # i = 0
+    # mov = nil
+    uniq_movie = all_movie.uniq
+    uniq_movie.sort_by { |movie| movie.average_rating }[-1]
+    # uniq_movie.each do |movie|
+    #   if movie.average_rating > i
+    #     i = movie.average_rating
+    #     mov = movie
+    #   end
+    # end
 
-     binding.pry
-     # each_movie.all.map.do |movie|
-     # movie.average_rating
-   # end
+    # mov
 
      #sort array desc, take first oen
     #return movie with highest average across viewers watchlistings
